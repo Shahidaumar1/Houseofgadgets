@@ -63,6 +63,18 @@ class Modal extends Model
         return $this->hasMany(RepairType::class);
     }
 
+    public function repairs()
+    {
+        return $this->hasManyThrough(
+            RepairType::class,
+            Price::class,
+            'modal_id',        // Foreign key on prices table
+            'id',              // Local key on repair_types
+            'id',              // Local key on modals
+            'repair_type_id'   // Foreign key on prices pointing to repair_types
+        );
+    }
+
     public function prices()
     {
         return $this->hasMany(Price::class);
