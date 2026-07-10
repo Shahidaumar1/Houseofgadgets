@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branches Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* #map {
+            height: 600px;
+            width: 100%;
+        } */
+    </style>
+</head>
+<body>
+    <!-- <h1>Branches Map</h1> -->
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([51.505, -0.09], 10);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Load branches.json
+        fetch('branches.json')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(branch => {
+                    // Create a marker for each branch
+                    const marker = L.marker([branch.latitude, branch.longitude]).addTo(map);
+
+                    // Create a popup with branch details
+                    const popupContent = `
+                        <strong>${branch.name}</strong><br>
+                        ${branch.address_line_1}<br>
+                        ${branch.address_line_2}<br>
+                        ${branch.town_city}<br>
+                        ${branch.post_code}<br>
+                        <img src="${branch.image}" alt="${branch.name}" style="width: 100%; height: auto;"><br>
+                        <strong>Contact:</strong><br>
+                        Mobile: ${branch.mobile_number}<br>
+                        Landline: ${branch.landline_number}<br>
+                        Email: <a href="mailto:${branch.email}">${branch.email}</a>
+                    `;
+
+                    // Bind the popup to the marker
+                    marker.bindPopup(popupContent);
+                });
+            });
+    </script>
+</body>
+</html>

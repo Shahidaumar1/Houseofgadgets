@@ -1,0 +1,3 @@
+<div style="font-family: 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';" class="table">
+{{ Illuminate\Mail\Markdown::parse($slot) }}
+</div>

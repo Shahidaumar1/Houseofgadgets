@@ -1,0 +1,1 @@
+<?php /**PATH /home/thephonelab/houseofgadgets.thephonelab.co.uk/resources/views/frontend/Home_page_sections/selectAdeviceSection.blade.php ENDPATH**/ ?>

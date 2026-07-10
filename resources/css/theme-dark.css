@@ -1,0 +1,88 @@
+/* 1) Global CSS variables (same for sab pages) */
+:root{
+  --color-background:#0f0f0f;
+  --color-surface:#1a1a1a;
+  --color-text:#eaeaea;
+  --color-border:rgba(255,255,255,.12);
+  --color-primary:#EA1555; /* brand pink */
+}
+
+/* 2) Page base */
+body{ background:var(--color-background) !important; color:var(--color-text) !important; }
+
+/* 3) Headings */
+.payment-box-heading,.summry-heading{ color:var(--color-primary) !important; }
+
+/* 4) Tables (Repair Summary) */
+.table{
+  --bs-table-bg: transparent !important;
+  --bs-table-color: var(--color-text) !important;
+  --bs-table-striped-bg: color-mix(in srgb, var(--color-surface), var(--color-text) 6%) !important;
+  --bs-table-border-color: var(--color-border) !important;
+}
+#repair-summary{
+  background:var(--color-surface) !important;
+  color:var(--color-text) !important;
+  border:1px solid var(--color-border) !important;
+}
+#repair-summary thead th,#repair-summary thead td{
+  background:var(--color-surface) !important;
+  color:var(--color-text) !important;
+  border-color:var(--color-border) !important;
+}
+#repair-summary tbody td{
+  background:transparent !important;
+  color:var(--color-text) !important;
+  border-color:color-mix(in srgb, var(--color-border), transparent 30%) !important;
+}
+.table> :not(caption)>*>*{ background-color:transparent !important; color:var(--color-text) !important; }
+
+/* 5) Payment box / accordion */
+.accordion{ background:transparent !important; border-color:var(--color-border) !important; }
+.tab__label,.tab__content{
+  background:var(--color-surface) !important;
+  color:var(--color-text) !important;
+  border:1px solid var(--color-border) !important;
+}
+.tab__content{ border-top-color:color-mix(in srgb, var(--color-border), transparent 30%) !important; }
+
+/* 6) Pink borders ko theme se replace (inline styles ko override) */
+.repair-payment-sec .p-2.p-lg-3[style*="border"]{
+  border:1px solid var(--color-border) !important; /* 2px pink -> themed 1px */
+  border-radius:10px !important;
+}
+
+/* 7) Price/brand color */
+.text-danger{ color:var(--color-primary) !important; }
+
+/* 8) “black” inline text ko force theme color */
+.repair-payment-sec [style*="color:black"], .repair-payment-sec [style*="color: black"],
+.text-black, .soft, .details-con p { color:var(--color-text) !important; }
+
+/* 9) Radio bullet on label */
+.form-check-input+.tab__label::before{
+  background:var(--color-surface) !important;
+  border-color:var(--color-primary) !important;
+}
+.form-check-input:checked+.tab__label::before,
+.tab__label:hover::before{
+  background:var(--color-primary) !important;
+  border-color:var(--color-primary) !important;
+}
+
+/* 10) Buttons */
+.repair-payment-sec .btn,
+button[role="button"],button[type="button"],button[type="submit"]{
+  background:var(--color-primary) !important; border:1px solid var(--color-primary) !important; color:#fff !important;
+}
+.repair-payment-sec .btn:hover,
+button[role="button"]:hover,button[type="button"]:hover,button[type="submit"]:hover{
+  background:transparent !important; color:var(--color-primary) !important;
+}
+
+/* 11) Alerts / modal */
+.alert,.modal-content{ background:var(--color-surface) !important; color:var(--color-text) !important; border:1px solid var(--color-border) !important; }
+.modal-header,.modal-footer{ border-color:var(--color-border) !important; }
+
+/* 12) Safety: any .bg-white inside this section becomes themed surface */
+.bg-white{ background:var(--color-surface) !important; color:var(--color-text) !important; border-color:var(--color-border) !important; }
