@@ -1,1 +1,0 @@
-<?php /**PATH C:\Users\AL-RASHEEED\Downloads\idea\resources\views/frontend/Home_page_sections/selectAdeviceSection.blade.php ENDPATH**/ ?>
